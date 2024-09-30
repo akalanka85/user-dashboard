@@ -1,9 +1,10 @@
-import styles from "./Button.module.scss";
+import React from 'react'
+import styles from './Button.module.scss'
 
 interface ButtonProps {
-  children: any;
-  icon: any;
-  onClick: () => void;
+  children: any
+  icon: any
+  onClick: () => void
 }
 
 export default function Button({ children, icon, ...props }: ButtonProps) {
@@ -14,5 +15,5 @@ export default function Button({ children, icon, ...props }: ButtonProps) {
         {!!icon && <span className={styles.icon}>{icon}</span>}
       </div>
     </button>
-  );
+  )
 }

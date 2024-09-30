@@ -8,10 +8,11 @@ import Filter from "./Filter/Filter";
 import Sort from "./Sort/Sort";
 
 export default function Dashboard() {
-  const [allUsers, setAllUsers] = useState<User[] | null>(null);
-  const [filteredUsers, setFilteredUsers] = useState<User[] | null>(null);
-  const [sortBy, setSortBy] = useState<string>("name");
-  const [sortOrder, setSortOrder] = useState<string>("asc");
+  const [allUsers, setAllUsers] = useState<User[] | null>([]);
+  const [filteredUsers, setFilteredUsers] = useState<User[] | null>([]);
+  const [sortBy, setSortBy] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>("");
+  const [filterText, setFilterText] = useState<string>("");
 
   useEffect(() => {
     getUsers().then((result: User[] | null) => {
@@ -21,21 +22,29 @@ export default function Dashboard() {
   }, []);
 
   const handleFilter = (filter: string) => {
-    const filtered = allUsers?.filter((user) =>
-      user.name.toLowerCase().includes(filter.toLowerCase())
-    );
-    setFilteredUsers(filtered || []);
+    setFilterText(filter);
+    setFilteredUsers(filterUsers(filter) || []);
   };
 
   const handleSort = (field: string) => {
-    const sorted = filteredUsers?.sort((a, b) => {
-      const comparison =
-        field === "name"
-          ? a.name.localeCompare(b.name)
-          : a.email.localeCompare(b.email);
-      return sortOrder === "asc" ? comparison : -comparison;
-    });
+    const filtered = filterUsers(filterText);
+    let sorted = filtered;
+    if (sortOrder !== "desc") {
+      sorted = filtered?.sort((a, b) => {
+        const order =
+          field === "name"
+            ? a.name.localeCompare(b.name)
+            : a.email.localeCompare(b.email);
+        return sortOrder === "asc" ? order : -order;
+      });
+    }
     setFilteredUsers(sorted || []);
+  };
+
+  const filterUsers = (filter: string) => {
+    return allUsers?.filter((user) =>
+      user.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
 
   return (
@@ -55,7 +64,7 @@ export default function Dashboard() {
 
         <div className={styles.usersList}>
           {filteredUsers?.map((user) => (
-            <UserCard user={user}></UserCard>
+            <UserCard user={user} key={user.id}></UserCard>
           ))}
         </div>
       </div>

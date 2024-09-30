@@ -17,7 +17,7 @@ export default function UserCardListItem({
         <span className={styles.icon}>{icon}</span>
         <span>{title} </span>
       </div>
-      <span>{value}</span>
+      <span className={styles.valueText}>{value}</span>
     </li>
   );
 }
