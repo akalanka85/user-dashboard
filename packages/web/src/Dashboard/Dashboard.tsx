@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { User } from "@app/types";
 import { getUsers } from "@app/api";
 import UserCard from "./UserCard/UserCard";
+import styles from "./Dashboard.module.scss";
+
 
 export default function Dashboard() {
   const [allUsers, setAllUsers] = useState<User[] | null>(null);
@@ -16,9 +18,12 @@ export default function Dashboard() {
 
   return (
     <div className="App">
-      <div className="d-flex flex-wrap">
+      <div  className={styles.dashboard}>
+
+      </div>
+      <div className={styles.dashboardBody}>
         {filteredUsers?.map((user) => (
-          <UserCard></UserCard>
+          <UserCard user={user}></UserCard>
         ))}
       </div>
     </div>

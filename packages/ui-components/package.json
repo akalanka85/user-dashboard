@@ -61,6 +61,8 @@
     "dist"
   ],
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.79.4",
     "styled-components": "^5.3.0",
     "styled-system": "^5.1.5"
   }
