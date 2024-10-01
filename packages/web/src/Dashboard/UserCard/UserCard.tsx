@@ -1,15 +1,15 @@
 import { User } from "@app/types";
-import { Card } from "@app/ui-components"
-import styles from "./UserCard.module.scss";
-import { ReactComponent as LocationIcon } from "../../assets/location.svg";
-import { ReactComponent as EmailIcon } from "../../assets/email.svg";
-import { ReactComponent as PhoneIcon } from "../../assets/phone.svg";
-import { ReactComponent as WebIcon } from "../../assets/web.svg";
-
+import { Card } from "@app/ui-components";
+import { ReactComponent as LocationIcon } from "../../assets/icons/location.svg";
+import { ReactComponent as EmailIcon } from "../../assets/icons/email.svg";
+import { ReactComponent as PhoneIcon } from "../../assets/icons/phone.svg";
+import { ReactComponent as WebIcon } from "../../assets/icons/web.svg";
 import UserCardListItem from "./UserCardListItem/UserCardListItem";
 
+import styles from "./UserCard.module.scss";
+
 interface CardProps {
-  user: User;
+  readonly user: User;
 }
 
 export default function UserCard({ user }: CardProps) {

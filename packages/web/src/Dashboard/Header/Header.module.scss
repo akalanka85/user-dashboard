@@ -1,8 +1,10 @@
+@import "../../assets/styles/colors";
+
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 32px 32px;
-    color: white;
-    background: #1E3E62;
-    margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 32px;
+  color: $header-text-color;
+  background: $header-blue;
+  margin-bottom: 32px;
 }

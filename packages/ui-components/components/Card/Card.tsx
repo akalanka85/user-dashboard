@@ -1,15 +1,16 @@
 import React from 'react'
+import styles from './Card.module.scss'
 
 interface CardProps {
-  children: any
-  header: string
+  readonly children: React.ReactNode
+  readonly header: string
 }
 
-export default function Card({ header, children }: CardProps) {
+export function Card({ header, children }: CardProps) {
   return (
-    <div className='card shadow p-3 mb-5 bg-white rounded'>
-      <div className='card-header'>{header}</div>
-      <div className='card-body'>{children}</div>
+    <div className={styles.commonCard}>
+      <div className={styles.commonCardHeader}>{header}</div>
+      <div className={styles.commonCardBody}>{children}</div>
     </div>
   )
 }

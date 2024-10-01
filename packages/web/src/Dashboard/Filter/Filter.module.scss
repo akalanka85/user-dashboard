@@ -1,7 +1,20 @@
+@import "../../assets/styles/colors";
+
 .filter {
+  width: 50%;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border-color: $filter-blue;
+}
+@media screen and (max-width: 1400px) {
+  .filter {
     width: 50%;
-    height: 40px;
-    padding: 0 8px;
-    border-radius: 8px;
-    border-color: #413c6e;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .filter {
+    width: 400px;
+  }
 }

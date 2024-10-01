@@ -1,16 +1,13 @@
+import { ReactNode } from "react";
 import styles from "./UserCardListItem.module.scss";
 
 interface UserCardListItemProps {
-  title: string;
-  value: string;
-  icon: any;
+  readonly title: string;
+  readonly value: string;
+  readonly icon: ReactNode;
 }
 
-export default function UserCardListItem({
-  title,
-  value,
-  icon,
-}: UserCardListItemProps) {
+export default function UserCardListItem({ title, value, icon }: UserCardListItemProps) {
   return (
     <li>
       <div className={styles.title}>

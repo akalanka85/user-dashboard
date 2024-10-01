@@ -1,15 +1,51 @@
-
-
 .usersList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .sortSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.filterWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.contentWrapper {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 96px;
+  gap: 16px;
+  .icon {
     display: flex;
-    justify-content: center;
-    margin-top: 16px;
+    width: 128px;
+    height: 128px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .filterWrapper {
+    padding: 0;
+    width: 820px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 991px) {
+  .filterWrapper {
+    display: block;
+    width: unset;
+    margin: unset;
+  }
 }

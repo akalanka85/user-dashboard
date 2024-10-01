@@ -2,12 +2,12 @@ import React from 'react'
 import styles from './Button.module.scss'
 
 interface ButtonProps {
-  children: any
-  icon: any
-  onClick: () => void
+  readonly children: React.ReactNode
+  readonly icon?: React.ReactNode
+  readonly onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export default function Button({ children, icon, ...props }: ButtonProps) {
+export function Button({ children, icon, ...props }: ButtonProps) {
   return (
     <button className={styles.button} {...props}>
       <div className={styles.wrapper}>

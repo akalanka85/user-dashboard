@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "start": "lerna exec --scope @app/web -- yarn start"
+    "start": "npm run build && lerna exec --scope @app/web -- yarn start"
   },
   "dependencies": {},
   "devDependencies": {

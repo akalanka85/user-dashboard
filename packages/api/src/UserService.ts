@@ -1,13 +1,14 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { User } from "@app/types";
+import { FetchUsersError } from "./FetchUsersError";
+import { USERS_URL } from "./config";
 
-
-export const getUsers = async () => {
+export const getUsers = async (): Promise<User[]> => {
   try {
-    const response = await axios.get<User[]>("https://jsonplaceholder.typicode.com/users");
-    return response.data;
+    const { data } = await axios.get<User[]>(USERS_URL);
+    return data;
   } catch (error) {
-    console.error("Error when fetching the users:", error);
-    return null;
+    const axiosError = error as AxiosError;
+    throw new FetchUsersError("Error fetching users: " + axiosError.message);
   }
 };
