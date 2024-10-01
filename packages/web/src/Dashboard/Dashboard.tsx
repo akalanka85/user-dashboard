@@ -65,11 +65,29 @@ export default function Dashboard() {
     setState((prevState) => ({ ...prevState, sortBy: field }));
   };
 
+  const filterUser = (user: User, filterText: string): boolean => {
+    const lowerFilterText = filterText.toLowerCase();
+
+    const fieldsToCheck = [
+      user.name,
+      user.email,
+      user.website,
+      user.phone,
+      user.address.city,
+      user.address.street,
+      user.address.suite,
+    ];
+
+    return fieldsToCheck.some((field) =>
+      field.toLowerCase().includes(lowerFilterText)
+    );
+  };
+
   const filteredAndSortedUsers = useMemo(() => {
     if (!state.users) return [];
 
     const filtered = state.users.filter((user) =>
-      user.name.toLowerCase().includes(state.filterText.toLowerCase())
+      filterUser(user, state.filterText)
     );
 
     if (!state.sortOrder) {
