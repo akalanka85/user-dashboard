@@ -5,7 +5,7 @@
 
 ## Available Scripts
 
-To run the project execute the follwing scripts. (To run this command it should have the 'yarn' package manager)
+To run the project, execute the following scripts. (To run the commands below, it should have the 'yarn' package manager installed.)
 
 ### `yarn install`
 ### `yarn build` (Not mandatory)
